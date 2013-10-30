@@ -4,6 +4,12 @@ import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ *  Realization of event handling.
+ *  
+ *  @param handler - realization of IActionHandler, 
+ *  determines which handler use
+ */
 public class FrameActionListener implements ActionListener {
 	private IActionHandler handler = null;
 	/** 

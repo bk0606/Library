@@ -19,6 +19,10 @@ import model.IDatabaseController;
 /**
  * Class for connecting GUI tables and database tables. 
  * And creates a frame of them.
+ * 
+ * @param appName - title of whole window
+ * @param dbController - implementation of interface IDatabaseController, 
+ * which can perform database transactions
  */
 public class ViewConstructor {
 	private JTable guiTable 		 = null;
@@ -108,10 +112,6 @@ public class ViewConstructor {
 		}
 	}
 	
-	/**
-	 * @param appName - title of whole window
-	 * @param dbController - implementation of interface 
-	 */
 	public ViewConstructor(String appName, IDatabaseController dbController) {
 		this.appName = appName;
 		this.dbController = dbController;

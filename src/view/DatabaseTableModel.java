@@ -8,6 +8,9 @@ import javax.swing.table.AbstractTableModel;
 
 /**
  * This model work with database tables.
+ * 
+ * @param resultSet - data from database to fill the GUI table
+ * @param tableTitles - titles to GUI table
  */ 
 public class DatabaseTableModel extends AbstractTableModel {
 	private static final long serialVersionUID = 1L;
@@ -112,7 +115,7 @@ public class DatabaseTableModel extends AbstractTableModel {
     	
     }
     
-    public DatabaseTableModel(ResultSet rs, String[] tableTitles) throws SQLException, ClassNotFoundException {
-    	this.setDataSource(rs, tableTitles);
+    public DatabaseTableModel(ResultSet resultSet, String[] tableTitles) throws SQLException, ClassNotFoundException {
+    	this.setDataSource(resultSet, tableTitles);
     }
 }

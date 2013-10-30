@@ -15,6 +15,14 @@ import javax.swing.JTextField;
 import view.DatabaseTableModel;
 import model.IDatabaseController;
 
+/**
+ * Implementation of IActionHandler, which handle database operation
+ * 
+ * @param controller - realization of IDatabaseController, 
+ * whitch know how to work with DB
+ * @param dbTableName - DB table name
+ * @param guiTable - GUI table in frame
+ */
 public class DatabaseEventHandler implements IActionHandler {
 	private IDatabaseController dbInst    = null;
 	private String dbTable                = null;
@@ -96,10 +104,7 @@ public class DatabaseEventHandler implements IActionHandler {
 		return true;
 	}
 	/**
-	 * @param controller - realization of IDatabaseController, 
-	 * whitch know how to work with DB
-	 * @param dbTableName - DB table name
-	 * @param guiTable - GUI table in frame
+	 
 	 */
 	public DatabaseEventHandler(IDatabaseController controller,
 				String dbTableName, JTable guiTable) {
