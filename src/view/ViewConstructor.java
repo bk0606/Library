@@ -21,11 +21,11 @@ import model.IDatabaseController;
  * And creates a frame of them.
  */
 public class ViewConstructor {
-	private JTable guiTable 				 = null;
-	private JTabbedPane tabbedPane 			 = new JTabbedPane();
-	private JFrame frame  					 = null;
+	private JTable guiTable 		 = null;
+	private JTabbedPane tabbedPane 	         = new JTabbedPane();
+	private JFrame frame  			 = null;
 	private IDatabaseController dbController = null;
-	private String appName 					 = null;
+	private String appName 			 = null;
 	
 	/** Set relation between GUI table and DB table and create view
 	 * @param title - title of current tab bar
@@ -45,13 +45,13 @@ public class ViewConstructor {
 		btnPanel.add(this.createButton("Добавить запись", "addCmd", dbTable));
 		btnPanel.add(this.createButton("Удалить запись", "removeCmd", dbTable));
 		// Construct main panel
-        basePanel.add(tblPanel, BorderLayout.NORTH);
-        basePanel.add(btnPanel, BorderLayout.SOUTH);
-        // Add tab if tabbedPane is exists else create new  
-        tabbedPane.addTab(title, null, basePanel, title);
-        // Create frame if it not exists else create new
-        frame = createFrame(title, basePanel);
-        frame.pack();
+	        basePanel.add(tblPanel, BorderLayout.NORTH);
+	        basePanel.add(btnPanel, BorderLayout.SOUTH);
+	        // Add tab if tabbedPane is exists else create new  
+	        tabbedPane.addTab(title, null, basePanel, title);
+	        // Create frame if it not exists else create new
+	        frame = createFrame(title, basePanel);
+	        frame.pack();
 	}
 	/**
 	 * Creates button, set the action command (add, delete or else),
@@ -94,17 +94,17 @@ public class ViewConstructor {
 		if (frame != null) {
 			return frame;
 		} else {
-	        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-	        int sizeWidth = screenSize.width/2;
-	        int sizeHeight = screenSize.height/2;
-	        int locationX = (screenSize.width - sizeWidth) / 2;
-	        int locationY = (screenSize.height - sizeHeight) / 2;
-	        frame = new JFrame(appName);
-	        frame.setBounds(locationX, locationY, sizeWidth, sizeHeight);
-	        frame.setVisible(true);
-	        frame.add(tabbedPane);
-	        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	        return frame;
+		        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		        int sizeWidth = screenSize.width/2;
+		        int sizeHeight = screenSize.height/2;
+		        int locationX = (screenSize.width - sizeWidth) / 2;
+		        int locationY = (screenSize.height - sizeHeight) / 2;
+		        frame = new JFrame(appName);
+		        frame.setBounds(locationX, locationY, sizeWidth, sizeHeight);
+		        frame.setVisible(true);
+		        frame.add(tabbedPane);
+		        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		        return frame;
 		}
 	}
 	
