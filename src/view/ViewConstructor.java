@@ -1,4 +1,4 @@
-package view;
+п»їpackage view;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -42,8 +42,8 @@ public class ViewConstructor {
 		tblPanel.add(scrolledTable, BorderLayout.NORTH);
 		// Create buttons
 		JPanel btnPanel = new JPanel();
-		btnPanel.add(this.createButton("Добавить запись", "addCmd", dbTable));
-		btnPanel.add(this.createButton("Удалить запись", "removeCmd", dbTable));
+		btnPanel.add(this.createButton("Р”РѕР±Р°РІРёС‚СЊ Р·Р°РїРёСЃСЊ", "addCmd", dbTable));
+		btnPanel.add(this.createButton("РЈРґР°Р»РёС‚СЊ Р·Р°РїРёСЃСЊ", "removeCmd", dbTable));
 		// Construct main panel
         basePanel.add(tblPanel, BorderLayout.NORTH);
         basePanel.add(btnPanel, BorderLayout.SOUTH);
@@ -87,7 +87,7 @@ public class ViewConstructor {
 	}
 	/**
 	 * Creates frame if it not exists
-	 * @param title - title (привет от капитана :\ )
+	 * @param title - title (РїСЂРёРІРµС‚ РѕС‚ РєР°РїРёС‚Р°РЅР° :\ )
 	 * @param panel - main panel, contains all desgin
 	 */
 	public JFrame createFrame(String title, JPanel panel) {

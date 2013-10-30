@@ -1,4 +1,4 @@
-package model;
+﻿package model;
 
 import java.sql.ResultSet;
 import java.util.LinkedHashMap;

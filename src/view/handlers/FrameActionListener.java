@@ -1,4 +1,4 @@
-package view.handlers;
+﻿package view.handlers;
 
 import java.awt.Frame;
 import java.awt.event.ActionEvent;

@@ -1,4 +1,4 @@
-package view.handlers;
+п»їpackage view.handlers;
 
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -52,7 +52,7 @@ public class DatabaseEventHandler implements IActionHandler {
 		// get feedback from user
 		userAnswer = JOptionPane.showConfirmDialog(
 				FrameActionListener.getTopFrame(), 
-				message, "Добавление записи",
+				message, "Р”РѕР±Р°РІР»РµРЅРёРµ Р·Р°РїРёСЃРё",
 				JOptionPane.YES_NO_OPTION
 			);
 		// If answer - yes, send data to database
@@ -83,8 +83,8 @@ public class DatabaseEventHandler implements IActionHandler {
 		// get feedback from user
 		userAnswer = JOptionPane.showConfirmDialog(
 				FrameActionListener.getTopFrame(),
-				"Удалить запись №"+rowId+"?",
-                "Удаление записи",
+				"РЈРґР°Р»РёС‚СЊ Р·Р°РїРёСЃСЊ в„–"+rowId+"?",
+                "РЈРґР°Р»РµРЅРёРµ Р·Р°РїРёСЃРё",
                 JOptionPane.YES_NO_OPTION
 			);
 		// Delete row if answer - yes

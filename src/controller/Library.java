@@ -1,4 +1,4 @@
-package controller;
+п»їpackage controller;
 
 
 import java.sql.SQLException;
@@ -12,15 +12,15 @@ public class Library {
 				"jdbc:sqlserver://localhost\\MSSQLSERVER;"+
 				"databaseName=Library;user=sa;password=1;"
 		);
-		ViewConstructor vConstructor = new ViewConstructor("Библиотека", dbController);
+		ViewConstructor vConstructor = new ViewConstructor("Р‘РёР±Р»РёРѕС‚РµРєР°", dbController);
 		
-		String[] booksTitles = {"№", "Название", "Автор", "Дата публикации"};
-		vConstructor.createView("Книги", "Books", booksTitles);
+		String[] booksTitles = {"в„–", "РќР°Р·РІР°РЅРёРµ", "РђРІС‚РѕСЂ", "Р”Р°С‚Р° РїСѓР±Р»РёРєР°С†РёРё"};
+		vConstructor.createView("РљРЅРёРіРё", "Books", booksTitles);
 		
-		String[] usersTitles = new String[]{"№", "ФИО", "Дата рождения", "Номер телефона"};
-		vConstructor.createView("Пользователи", "Users", usersTitles);
+		String[] usersTitles = new String[]{"в„–", "Р¤РРћ", "Р”Р°С‚Р° СЂРѕР¶РґРµРЅРёСЏ", "РќРѕРјРµСЂ С‚РµР»РµС„РѕРЅР°"};
+		vConstructor.createView("РџРѕР»СЊР·РѕРІР°С‚РµР»Рё", "Users", usersTitles);
 		
-		String[] userBooksTitles = new String[]{"№", "№ пользователя", "№ книги"};
-		vConstructor.createView("Выданные книги", "UserBooks", userBooksTitles);
+		String[] userBooksTitles = new String[]{"в„–", "в„– РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ", "в„– РєРЅРёРіРё"};
+		vConstructor.createView("Р’С‹РґР°РЅРЅС‹Рµ РєРЅРёРіРё", "UserBooks", userBooksTitles);
 	}
 }
