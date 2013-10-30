@@ -10,11 +10,11 @@ import javax.swing.table.AbstractTableModel;
  * This model work with database tables.
  */ 
 public class DatabaseTableModel extends AbstractTableModel {
-    private static final long serialVersionUID = 1L;
-    private ArrayList<String> columnNames = new ArrayList<String>();
-    private ArrayList<String> columnAliases = new ArrayList<String>();
-	private ArrayList<Class> columnTypes = new ArrayList<Class>();
-    private ArrayList<ArrayList<Object>> data = new ArrayList<ArrayList<Object>>();
+	private static final long serialVersionUID = 1L;
+	private ArrayList<String> columnNames      = new ArrayList<String>();
+	private ArrayList<String> columnAliases    = new ArrayList<String>();
+	private ArrayList<Class> columnTypes       = new ArrayList<Class>();
+	private ArrayList<ArrayList<Object>> data  = new ArrayList<ArrayList<Object>>();
  
     public int getRowCount() {
         synchronized (data) {
@@ -81,13 +81,12 @@ public class DatabaseTableModel extends AbstractTableModel {
 	        columnAliases.clear();
 	        columnTypes.clear();
 	        data.clear();
-	 
 	        int columnCount = rsmd.getColumnCount();
 	        for (int i = 0; i < columnCount; i++) {
-	        	columnAliases.add(rsmd.getColumnName(i + 1));
-	            columnNames.add(tableTitles[i]);
-	            Class<?> type = Class.forName(rsmd.getColumnClassName(i + 1));
-	            columnTypes.add(type);
+        		columnAliases.add(rsmd.getColumnName(i + 1));
+			columnNames.add(tableTitles[i]);
+			Class<?> type = Class.forName(rsmd.getColumnClassName(i + 1));
+			columnTypes.add(type);
 	        }
 	        fireTableStructureChanged();
 	        while (rs.next()) {
