@@ -47,7 +47,7 @@ public class DatabaseEventHandler implements IActionHandler {
 		for (int i = 1; i < colCount; i++) { 
 			message.add(new JLabel(tableModel.getColumnName(i)));
 			txtFields[i] = new JTextField(20);
-            message.add(txtFields[i]);
+            		message.add(txtFields[i]);
 		}
 		// get feedback from user
 		userAnswer = JOptionPane.showConfirmDialog(
@@ -56,21 +56,21 @@ public class DatabaseEventHandler implements IActionHandler {
 				JOptionPane.YES_NO_OPTION
 			);
 		// If answer - yes, send data to database
-        if (userAnswer == JOptionPane.YES_OPTION) {
-        	LinkedHashMap<String, String> tableLine = new LinkedHashMap<String, String>();
-        	ArrayList<Object> rowData = new ArrayList<Object>();
-        	String[] colTitles = new String[tableModel.getColumnCount()];
-        	for (int i = 1; i < colCount; i++) {
-        		colTitles[i] = tableModel.getColumnName(i);
-        		tableLine.put(tableModel.getColumnAlias(i), txtFields[i].getText());
-        		rowData.add(txtFields[i].getText());
-        	}
-        	dbInst.performQuery(tableLine, dbTable);
-        	// Get updated table, for realtime change GUI
-        	ResultSet rs = dbInst.performQuery(dbTable);
-        	tableModel.setDataSource(rs, colTitles);
-        	guiTable.repaint();
-        }
+	        if (userAnswer == JOptionPane.YES_OPTION) {
+	        	LinkedHashMap<String, String> tableLine = new LinkedHashMap<String, String>();
+	        	ArrayList<Object> rowData = new ArrayList<Object>();
+	        	String[] colTitles = new String[tableModel.getColumnCount()];
+	        	for (int i = 1; i < colCount; i++) {
+	        		colTitles[i] = tableModel.getColumnName(i);
+	        		tableLine.put(tableModel.getColumnAlias(i), txtFields[i].getText());
+	        		rowData.add(txtFields[i].getText());
+	        	}
+	        	dbInst.performQuery(tableLine, dbTable);
+	        	// Get updated table, for realtime change GUI
+	        	ResultSet rs = dbInst.performQuery(dbTable);
+	        	tableModel.setDataSource(rs, colTitles);
+	        	guiTable.repaint();
+	        }
 	}
 	/** Method for handling delete operations. */
 	public boolean deletion() {
@@ -84,15 +84,15 @@ public class DatabaseEventHandler implements IActionHandler {
 		userAnswer = JOptionPane.showConfirmDialog(
 				FrameActionListener.getTopFrame(),
 				"Удалить запись №"+rowId+"?",
-                "Удаление записи",
-                JOptionPane.YES_NO_OPTION
+		                "Удаление записи",
+		                JOptionPane.YES_NO_OPTION
 			);
 		// Delete row if answer - yes
 		if (userAnswer == JOptionPane.YES_OPTION) {
 			dbInst.performQuery(dbTable, rowId);
 			tableModel.removeRow(row);
 			guiTable.repaint();
-        }
+	        }
 		return true;
 	}
 	/**
