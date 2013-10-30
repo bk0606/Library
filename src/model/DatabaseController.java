@@ -8,7 +8,7 @@ import java.util.LinkedHashMap;
  */
 public class DatabaseController implements IDatabaseController {
 	private DatabaseOperations dbo = null;
-
+	
 	public ResultSet performQuery(String table) {
 		ResultSet rs = dbo.select(table);		
 		return rs;
@@ -20,7 +20,7 @@ public class DatabaseController implements IDatabaseController {
 		dbo.delete(table, ID);
 	}
     
-    public DatabaseController(String connectUrl) {
-    	this.dbo = new DatabaseOperations(connectUrl);
-    }
+	public DatabaseController(String connectUrl) {
+	    this.dbo = new DatabaseOperations(connectUrl);
+	}
 }
