@@ -1,24 +1,20 @@
 ﻿package model;
 
 import java.sql.Statement;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.Map;
+
 /**
  * Class realizing basic methods of work with the database
  */
 public class DatabaseOperations {
-    private Connection connection = null;
-    private final String DRIVER   = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-    private Statement  stm        = null;
+    private Statement stm = null;
     
     public ResultSet select (String table) {
         ResultSet rs = null;
         try {
-            stm = connection.createStatement();
             String query = "SELECT * FROM "+table;
             rs = stm.executeQuery(query);
         } catch (SQLException ex) {
@@ -50,7 +46,6 @@ public class DatabaseOperations {
             ex.printStackTrace();
         }
     }
-    
     public void delete (String table, int id) {
         try {
             String query = "DELETE FROM "+table+" WHERE ID="+id;
@@ -61,17 +56,8 @@ public class DatabaseOperations {
         }
     }
     
-    public DatabaseOperations (String connectURL) {
-        try {
-            Class.forName(this.DRIVER);
-            this.connection = DriverManager.getConnection(connectURL);
-            this.stm = (Statement) this.connection.createStatement();
-        } 
-        catch (ClassNotFoundException ex) {
-            ex.printStackTrace();
-        }
-        catch (SQLException ex) {
-            ex.printStackTrace();
-        }
+    
+    public DatabaseOperations (Statement statement) {
+    	this.stm = statement;
     }
 }

@@ -12,10 +12,10 @@ import javax.swing.table.AbstractTableModel;
  * @param resultSet - data from database to fill the GUI table
  * @param tableTitles - titles to GUI table
  */ 
-public class DatabaseTableModel extends AbstractTableModel {
+public class GridTableModel extends AbstractTableModel {
 	private static final long serialVersionUID = 1L;
-	private ArrayList<String> columnNames      = new ArrayList<String>();
-	private ArrayList<String> columnAliases    = new ArrayList<String>();
+	private ArrayList<String> columnNames      = new ArrayList<String>(); // use for table titles
+	private ArrayList<String> columnAliases    = new ArrayList<String>(); // use for sql query
 	private ArrayList<Class> columnTypes       = new ArrayList<Class>();
 	private ArrayList<ArrayList<Object>> data  = new ArrayList<ArrayList<Object>>();
  
@@ -86,10 +86,10 @@ public class DatabaseTableModel extends AbstractTableModel {
 	        data.clear();
 	        int columnCount = rsmd.getColumnCount();
 	        for (int i = 0; i < columnCount; i++) {
-        		columnAliases.add(rsmd.getColumnName(i + 1));
-			columnNames.add(tableTitles[i]);
-			Class<?> type = Class.forName(rsmd.getColumnClassName(i + 1));
-			columnTypes.add(type);
+        		columnAliases.add(rsmd.getColumnName(i + 1)); // use for sql query
+				columnNames.add(tableTitles[i]);			  // use for table titles
+				Class<?> type = Class.forName(rsmd.getColumnClassName(i + 1));
+				columnTypes.add(type);
 	        }
 	        fireTableStructureChanged();
 	        while (rs.next()) {
@@ -115,7 +115,7 @@ public class DatabaseTableModel extends AbstractTableModel {
     	
     }
     
-    public DatabaseTableModel(ResultSet resultSet, String[] tableTitles) throws SQLException, ClassNotFoundException {
+    public GridTableModel(ResultSet resultSet, String[] tableTitles) throws SQLException, ClassNotFoundException {
     	this.setDataSource(resultSet, tableTitles);
     }
 }

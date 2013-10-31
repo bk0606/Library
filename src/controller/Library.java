@@ -9,18 +9,18 @@ public class Library {
 	public static void main(String[] args) throws SQLException, ClassNotFoundException {
 		DatabaseController dbController = new DatabaseController(
 				"jdbc:sqlserver://localhost\\MSSQLSERVER;"+
-				"databaseName=Library;user=sa;password=1;"
+				"user=sa;password=1;", "Library"
 		);
 		
 		ViewConstructor vConstructor = new ViewConstructor("Библиотека", dbController);
 		
-		String[] booksTitles = {"№", "Название", "Автор", "Дата публикации"};
-		vConstructor.createView("Книги", "Books", booksTitles);
+		String[] booksTitles = new String[]{"№", "Название", "Автор", "Дата публикации"};
+		vConstructor.createGridView("Книги", "Books", booksTitles);
 		
 		String[] usersTitles = new String[]{"№", "ФИО", "Дата рождения", "Номер телефона"};
-		vConstructor.createView("Пользователи", "Users", usersTitles);
+		vConstructor.createGridView("Пользователи", "Users", usersTitles);
 		
 		String[] userBooksTitles = new String[]{"№", "№ пользователя", "№ книги"};
-		vConstructor.createView("Выданные книги", "UserBooks", userBooksTitles);
+		vConstructor.createGridView("Выданные книги", "UserBooks", userBooksTitles);
 	}
 }
