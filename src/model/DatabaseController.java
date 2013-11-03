@@ -17,6 +17,9 @@ public class DatabaseController implements IDatabaseController {
 	private final String DRIVER    = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
 	private Statement statement    = null;
 	
+	public ResultSet executeQuery(String query) throws SQLException {
+		return statement.executeQuery(query);
+	}
 	public ResultSet select(String table) {
 		ResultSet rs = dbo.select(table);
 		return rs;
@@ -76,7 +79,7 @@ public class DatabaseController implements IDatabaseController {
             statement = connection.createStatement();
             this.createDatabaseIfNotExist();
             this.dbo = new DatabaseOperations(statement);
-        } 
+        }
         catch (ClassNotFoundException ex) {
             ex.printStackTrace();
         }

@@ -3,5 +3,5 @@
 import java.awt.event.ActionEvent;
 
 public interface IActionHandler {
-	public void handleEvent(ActionEvent event);
+    public void handleEvent(ActionEvent event);
 }

@@ -40,7 +40,6 @@ public class DatabaseOperations {
             }            
             String query = "INSERT INTO "+table+
                     " ("+sqlKeys+") VALUES ("+sqlVals+")";
-            System.out.println(query);
             stm.executeUpdate(query);
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -49,7 +48,6 @@ public class DatabaseOperations {
     public void delete (String table, int id) {
         try {
             String query = "DELETE FROM "+table+" WHERE ID="+id;
-            System.out.println(query);
             stm.executeUpdate(query);
         } catch (SQLException ex) {
             ex.printStackTrace();
